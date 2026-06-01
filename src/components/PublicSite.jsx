@@ -122,6 +122,7 @@ const staffRouteGroups = {
 const STAFF_PLACEHOLDER_IMAGE = "/images/staff-placeholder.svg";
 const INITIAL_LOADER_MS = 5000;
 const FIRESTORE_BOOT_TIMEOUT_MS = 4200;
+const DEFAULT_HERO_VIDEO = "/images/whatsapp/hero-video.mp4";
 
 function getSafeImage(getImage, requestedKey, fallbackKey, allowPoster = false) {
   const image = getImage(requestedKey);
@@ -347,6 +348,17 @@ export default function PublicSite() {
   const t = useCallback((key) => dictionary[language]?.[key] ?? dictionary.az[key] ?? key, [dictionary, language]);
   const getImage = useCallback((key) => managedImages[key] || defaultImages[key] || key, [defaultImages, managedImages]);
   const getContent = useCallback((key) => managedContent[key] || defaultContent[key], [defaultContent, managedContent]);
+
+  useEffect(() => {
+    const preloadVideo = document.createElement("link");
+    preloadVideo.rel = "preload";
+    preloadVideo.as = "video";
+    preloadVideo.href = DEFAULT_HERO_VIDEO;
+    preloadVideo.type = "video/mp4";
+    document.head.appendChild(preloadVideo);
+
+    return () => preloadVideo.remove();
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -827,12 +839,12 @@ function PageHero({ getContent, getImage, language, path, t }) {
 
 function Home({ getContent, getImage, language, managedData, t }) {
   const content = getContent("/");
-  const heroVideo = managedData.heroVideo || "/images/whatsapp/hero-video.mp4";
+  const heroVideo = managedData.heroVideo || DEFAULT_HERO_VIDEO;
   return (
     <>
       <section className="hero">
         <div className="hero-media">
-          <video autoPlay muted loop playsInline preload="metadata" poster={getSafeImage(getImage, "hero", "hero")} aria-hidden="true">
+          <video autoPlay muted loop playsInline preload="auto" poster={getSafeImage(getImage, "hero", "hero")} aria-hidden="true">
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>

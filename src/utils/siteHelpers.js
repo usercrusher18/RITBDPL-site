@@ -46,15 +46,15 @@ const legacyImagePaths = new Set([
 
 export function mergeImages(defaultImages, saved = {}) {
   return Object.entries({ ...defaultImages, ...saved }).reduce((result, [key, value]) => {
-    result[key] = shouldUseDefaultImage(value, key) ? defaultImages[key] : value;
+    result[key] = shouldUseDefaultImage(value) ? defaultImages[key] : value;
     return result;
   }, {});
 }
 
-function shouldUseDefaultImage(value, key) {
+function shouldUseDefaultImage(value) {
   if (typeof value !== "string" || !value.trim()) return true;
   if (legacyImagePaths.has(value)) return true;
-  if (key !== "successHero" && value.startsWith("/images/whatsapp/campus-")) return true;
+  if (value.startsWith("/images/whatsapp/campus-")) return true;
   return !/^(\/|https?:\/\/|data:image\/|blob:)/i.test(value);
 }
 

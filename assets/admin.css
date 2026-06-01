@@ -144,6 +144,17 @@
     gap: 16px;
 }
 
+.autofill-decoy {
+    position: fixed;
+    left: -100vw;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .admin-editor-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.7fr);

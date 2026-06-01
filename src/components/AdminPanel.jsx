@@ -320,12 +320,13 @@ function LoginPanel({ setStatus, status }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    const email = event.currentTarget.querySelector("#ritbdplAdminLoginEmail")?.value || "";
+    const password = event.currentTarget.querySelector("#ritbdplAdminLoginPassword")?.value || "";
     setStatus("Giriş edilir...");
     try {
       await setPersistence(auth, inMemoryPersistence);
       sessionStorage.setItem(ADMIN_FRESH_LOGIN_KEY, "1");
-      await signInWithEmailAndPassword(auth, String(data.get("email") || "").trim(), String(data.get("password") || ""));
+      await signInWithEmailAndPassword(auth, String(email).trim(), String(password));
       setStatus("");
     } catch {
       sessionStorage.removeItem(ADMIN_FRESH_LOGIN_KEY);
@@ -340,15 +341,39 @@ function LoginPanel({ setStatus, status }) {
         <p className="eyebrow">İdarəetmə girişi</p>
         <h1>Admin Panel</h1>
         <p className="muted">Səhifə mətnləri, fotolar və bütün bölmə kartları buradan idarə olunur.</p>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" autoComplete="off" onSubmit={handleSubmit}>
+          <input aria-hidden="true" autoComplete="username" className="autofill-decoy" name="email" tabIndex="-1" type="text" />
+          <input aria-hidden="true" autoComplete="current-password" className="autofill-decoy" name="password" tabIndex="-1" type="password" />
           <div className="field">
-            <label htmlFor="adminEmail">Email</label>
-            <input id="adminEmail" name="email" type="email" autoComplete="username" required />
+            <label htmlFor="ritbdplAdminLoginEmail">Email</label>
+            <input
+              id="ritbdplAdminLoginEmail"
+              name="ritbdpl_admin_login"
+              type="text"
+              inputMode="email"
+              autoCapitalize="none"
+              autoComplete="new-password"
+              data-1p-ignore="true"
+              data-lpignore="true"
+              readOnly
+              required
+              onFocus={(event) => event.currentTarget.removeAttribute("readonly")}
+            />
           </div>
           <div className="field">
-            <label htmlFor="adminPassword">Şifrə</label>
+            <label htmlFor="ritbdplAdminLoginPassword">Şifrə</label>
             <div className="password-field">
-              <input id="adminPassword" name="password" type={showPassword ? "text" : "password"} autoComplete="current-password" required />
+              <input
+                id="ritbdplAdminLoginPassword"
+                name="ritbdpl_admin_secret"
+                type={showPassword ? "text" : "password"}
+                autoComplete="new-password"
+                data-1p-ignore="true"
+                data-lpignore="true"
+                readOnly
+                required
+                onFocus={(event) => event.currentTarget.removeAttribute("readonly")}
+              />
               <button
                 className="password-toggle"
                 type="button"

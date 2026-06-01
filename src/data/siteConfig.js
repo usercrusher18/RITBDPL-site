@@ -28,7 +28,7 @@ const siteConfig = (() => {
         leadershipHero: "/images/heroes/leadership-hero.jpg",
         educationHero: "/images/heroes/education-programs-hero.jpg",
         partnersHero: "/images/heroes/partners-hero.jpg",
-        successHero: "/images/heroes/successful-students-hero.jpg",
+        successHero: "/images/heroes/blank-hero.svg",
         newsHero: "/images/heroes/news-hero.jpg",
         contactHero: "/images/heroes/contact-hero.jpg"
     };
