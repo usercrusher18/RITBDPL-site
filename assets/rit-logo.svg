@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" role="img" aria-labelledby="title desc">
+    <title id="title">Rabitə və İnformasiya Texnologiyaları üzrə Bakı Dövlət Peşə Təhsili Mərkəzi</title>
+    <desc id="desc">Mərkəzin nişanı və adı</desc>
+    <rect width="720" height="150" fill="none"/>
+    <g transform="translate(20 18)">
+        <rect x="0" y="0" width="114" height="114" rx="16" fill="#ffffff" stroke="#111111" stroke-width="5"/>
+        <path d="M24 80V37h24c13 0 22 8 22 20s-9 23-22 23H24Z" fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 80 78 106" fill="none" stroke="#111111" stroke-width="7" stroke-linecap="round"/>
+        <path d="M84 29v55" fill="none" stroke="#8a6d3b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M68 29h32" fill="none" stroke="#8a6d3b" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="6" fill="#111111"/>
+        <circle cx="90" cy="91" r="6" fill="#111111"/>
+        <path d="M24 24h66v67" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 9"/>
+    </g>
+    <g fill="#111111" font-family="Noto Sans, Segoe UI, Arial, sans-serif">
+        <text x="158" y="44" font-size="28" font-weight="900">RABİTƏ VƏ İNFORMASİYA</text>
+        <text x="158" y="80" font-size="28" font-weight="900">TEXNOLOGİYALARI ÜZRƏ</text>
+        <text x="158" y="114" font-size="21" font-weight="800">BAKI DÖVLƏT PEŞƏ TƏHSİLİ MƏRKƏZİ</text>
+    </g>
+</svg>
