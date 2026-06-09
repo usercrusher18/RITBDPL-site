@@ -8,9 +8,13 @@ const withTranslation = (value, translations) => (
 
 const roleTranslations = {
   "Baş usta": "Head master",
+  "Direktor": "Director",
   "Mühəndis-mexanik": "Mechanical engineer",
   "Müəllim": "Teacher",
   "Psixoloq": "Psychologist",
+  "Riyaziyyat müəllimi": "Mathematics teacher",
+  "Tərbiyə işləri üzrə direktor müavini": "Deputy director for student affairs",
+  "Ümumtəhsil fənn müəllimi": "General education teacher",
   "Ümumtəhsil fənləri üzrə tədris hissə müdiri": "Head of academic affairs for general education subjects",
   "İstehsalat təlimi ustası": "Workplace training master",
   "İxtisas fənn müəllimi": "Specialty subject teacher",
@@ -18,6 +22,7 @@ const roleTranslations = {
 };
 
 const detailLabelTranslations = {
+  "Doğum tarixi": "Date of birth",
   "Dərəcə": "Degree",
   "Peşə hazırlığı": "Vocational training",
   "Qiymətləndirmə": "Assessment",
@@ -187,7 +192,8 @@ const baseStaffGroups = [
         detail("Təcrübə", "19 il"),
       ]),
       profile("Sevil Əsədova", "sevil-asadova", "İxtisas fənn müəllimi", "Qrafik dizayner", [
-        detail("Təhsil", "Azərbaycan Neft və Kimya İnstitutu; Azərbaycan Müəllimlər İnstitutu"),
+        detail("Təhsil", "Azərbaycan Neft və Kimya İnstitutu, informasiya-ölçmə və hesablama texnikası; Azərbaycan Müəllimlər İnstitutu, riyaziyyat-informatika müəllimliyi"),
+        detail("Doğum tarixi", "26.04.1966"),
         detail("Təcrübə", "28 il"),
         detail("Qiymətləndirmə", "DQ 49, MİQ 39"),
       ]),
@@ -327,6 +333,58 @@ const baseStaffGroups = [
 ];
 
 const additionalStaff = [
+  profile("Arzu Bağırova", "arzu-bagirova", "Riyaziyyat müəllimi", "Riyaziyyat", [
+    detail("Təhsil", "Bakı Dövlət Universiteti, Mexanika-Riyaziyyat fakültəsi; Azərbaycan Dövlət Pedaqoji Universiteti, bakalavr; Azərbaycan Dövlət İqtisad Universiteti, magistr"),
+    detail("Təcrübə", "2011-ci ildən mərkəzdə"),
+    detail("Qiymətləndirmə", "DQ 37"),
+  ]),
+  profile("Elmira Əliyeva", "elmira-aliyeva", "İxtisas fənn müəllimi", "Elektron sənaye və texniki xidmət", [
+    detail("Təhsil", "Ç. İldırım adına Azərbaycan Politexnik İnstitutu, sənaye elektronikası"),
+    detail("Doğum tarixi", "08.07.1965"),
+    detail("Təcrübə", "41 il ümumi, 36 il pedaqoji; 2007-ci ildən peşə liseyində"),
+  ]),
+  profile("Xalidə Hümbətova", "xalide-humbatova", "Direktor", "Fizika", [
+    detail("Təhsil", "Bakı Dövlət Universiteti, fizika"),
+    detail("Təcrübə", "20 il"),
+  ]),
+  profile("Məlahət Ələkbərova", "melahet-alakbarova", "Riyaziyyat müəllimi", "Riyaziyyat", [
+    detail("Təhsil", "Bakı Dövlət Universiteti, Mexanika-Riyaziyyat fakültəsi, riyaziyyat müəllimliyi"),
+    detail("Doğum tarixi", "22.09.1997"),
+    detail("Təcrübə", "6 il"),
+    detail("Qiymətləndirmə", "MİQ 71, sertifikasiya 95"),
+  ]),
+  profile("Nurlana Rəhimova", "nurlana-rahimova", "Müəllim", "İngilis dili", [
+    detail("Təhsil", "Azərbaycan Dillər Universiteti, filologiya və ingilis dili"),
+    detail("Doğum tarixi", "01.01.1981"),
+    detail("Təcrübə", "23 il"),
+    detail("Qiymətləndirmə", "DQ 39, sertifikasiya 45"),
+  ]),
+  profile("Səadət Hümbətova", "seadet-humbatova", "Ümumtəhsil fənn müəllimi", "İngilis dili", [
+    detail("Təhsil", "Azərbaycan Dillər Universiteti, ingilis dili müəllimliyi"),
+    detail("Doğum tarixi", "25.06.1982"),
+    detail("Təcrübə", "23 il"),
+    detail("Qiymətləndirmə", "Diaqnostik imtahan 54, sertifikasiya 57"),
+  ]),
+  profile("Səlbi Babayeva", "selbi-babayeva", "Ümumtəhsil fənn müəllimi", "Riyaziyyat", [
+    detail("Təhsil", "Bakı Dövlət Universiteti, Mexanika-Riyaziyyat fakültəsi, bakalavr və magistr"),
+    detail("Doğum tarixi", "15.10.1989"),
+    detail("Təcrübə", "8 il"),
+    detail("Qiymətləndirmə", "MİQ 70"),
+  ]),
+  profile("Türkan Səfərova", "turkan-safarova", "Riyaziyyat müəllimi", "Riyaziyyat", [
+    detail("Təhsil", "Bakı Dövlət Universiteti, riyaziyyat müəllimliyi; Azərbaycan Dövlət İqtisad Universiteti, qiymətli kağızlar"),
+    detail("Doğum tarixi", "16.08.1993"),
+    detail("Təcrübə", "1 il"),
+  ]),
+  profile("Ülviyyə Hacıyeva", "ulviyye-haciyeva", "Tərbiyə işləri üzrə direktor müavini", "Rabitə və informasiya texnologiyaları", [
+    detail("Təhsil", "Azərbaycan Texniki Universiteti, avtomatika və hesablama texnikası"),
+    detail("Təcrübə", "2007-ci ildən işləyir; 2012-ci ildən tərbiyə işləri üzrə direktor müavini"),
+  ]),
+  profile("Xanəli Məmmədov", "xaneli-mammadov", "Müəllim", "Riyaziyyat", [
+    detail("Doğum tarixi", "20.06.1968"),
+    detail("Təhsil", "Xocamsaxlı kənd natamam orta məktəbi; Dondarlı kənd orta məktəbi"),
+    detail("Qiymətləndirmə", "Diaqnostika 47"),
+  ]),
   profile("Günel Nəsirova", "gunel-nasirova", "Müəllim", "Kimya", [
     detail("Təhsil", "Bakı Dövlət Universiteti, kimya"),
     detail("Təcrübə", "18 il"),
@@ -345,7 +403,7 @@ const additionalStaff = [
 ];
 
 const allStaffMembers = [...baseStaffGroups.flatMap((group) => group.members), ...additionalStaff];
-const leadershipNames = new Set(["Bənövşə Seyidova", "Firuzə Alıyeva", "Şamama Süleymanova"]);
+const leadershipNames = new Set(["Bənövşə Seyidova", "Firuzə Alıyeva", "Şamama Süleymanova", "Ülviyyə Hacıyeva", "Xalidə Hümbətova"]);
 const technicalStaffNames = new Set(["Əhliman Ağaverdiyev"]);
 const isLeadership = (member) => leadershipNames.has(member.name);
 const azText = (value) => value?.az || value || "";

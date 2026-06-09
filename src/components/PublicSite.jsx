@@ -224,7 +224,11 @@ function normalizeStaffGroups(groups = [], defaultGroups = []) {
   return orderedGroups.map((group) => ({
     ...(defaultGroups.find((defaultGroup) => defaultGroup.id === group.id) || {}),
     ...group,
-    members: (group.members || []).map((member) => ({
+    members: [
+      ...(group.members || []),
+      ...((defaultGroups.find((defaultGroup) => defaultGroup.id === group.id)?.members || [])
+        .filter((defaultMember) => !(group.members || []).some((member) => member.name === defaultMember.name))),
+    ].map((member) => ({
       ...member,
       image: STAFF_PLACEHOLDER_IMAGE,
       details: Array.isArray(member.details) ? member.details : [],
